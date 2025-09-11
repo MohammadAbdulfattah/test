@@ -54,7 +54,23 @@
                         'data-day' => $key,
                         'id' => "contacts_$key"
                     ]) !!}
-                    
+                    <div class="radio">
+                        <label class="tw-mr-3">
+                            {!! Form::radio("interval_days[$key]", 7, true) !!} @lang('gbs::lang.every_week')
+                        </label>
+                        <label class="tw-mr-3">
+                            {!! Form::radio("interval_days[$key]", 10, false) !!} @lang('gbs::lang.every_10_days')
+                        </label>
+                        <label class="tw-mr-3">
+                            {!! Form::radio("interval_days[$key]", 14, false) !!} @lang('gbs::lang.every_2_weeks')
+                        </label>
+                        <label class="tw-mr-3">
+                            {!! Form::radio("interval_days[$key]", 21, false) !!} @lang('gbs::lang.every_3_weeks')
+                        </label>
+                        <label class="tw-mr-3">
+                            {!! Form::radio("interval_days[$key]", 30, false) !!} @lang('gbs::lang.every_month')
+                        </label>
+                    </div>
                 </div>
             @endforeach
         </div>

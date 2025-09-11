@@ -11,7 +11,7 @@ class RouteDay extends Model
 
     protected $table = 'gbs_route_days';
 
-    protected $fillable = ['route_id', 'day_of_week'];
+    protected $fillable = ['route_id', 'day_of_week', 'interval_days'];
     
     // protected static function newFactory()
     // {

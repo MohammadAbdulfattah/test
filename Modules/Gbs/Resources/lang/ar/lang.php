@@ -78,6 +78,13 @@ return [
     'customers_number'=>'عدد العملاء',
     'parent_sector' =>'القناة الاب ',
     'none_sector'=>'لا ينتمي ل اي قناة',
-    'none_group'=>'بدون مجموعة'
+    'none_group'=>'بدون مجموعة',
+
+    // visit frequency options
+    'every_week' => 'كل أسبوع',
+    'every_10_days' => 'كل 10 أيام',
+    'every_2_weeks' => 'كل أسبوعين',
+    'every_3_weeks' => 'كل 3 أسابيع',
+    'every_month' => 'كل شهر'
 
 ];
