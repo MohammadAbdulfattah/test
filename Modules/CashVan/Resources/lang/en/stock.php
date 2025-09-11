@@ -1,0 +1,26 @@
+<?php
+return [
+    'add_van_stock' => 'add van stock',
+    'van_stock.empty' => 'empty van stock',
+    'delete_van_stock' => 'empty van stock',
+    'already_empty' => 'already empty',
+    'transfer_from_car' => 'transfer from car',
+    'transfer_to_car' => 'transfer to car ',
+    'van_stock' => 'van stock',
+    'van_stock.delete' => 'empty van stock',
+    'van_stock.view' => 'view van stock',
+    'sell' => 'sell',
+    'purchase_transfer' => 'add stock',
+    'sell_transfer' => 'empty stock',
+    'view_history' => 'car stock record',
+    'the_deleted_stock' => 'the return stock',
+    'the_added_stock' => 'the added stock',
+    'cahsvan.delete' => 'delete cashvan',
+    'van_stock.view_history' => 'view stock history',
+    'accept_on_order' => 'accept on order',
+    'pending_for_approve' => 'pending for approve',
+    'show_stock_order' => 'show stock order',
+    'refuse_order' => 'refuse order',
+    'cashvan.delete' => 'delete  cash van',
+
+];

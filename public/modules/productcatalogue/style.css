@@ -1,0 +1,116 @@
+:root {
+    --main-color: #6d29f9;
+}
+
+@font-face {
+    font-family: URM;
+    src: url(./assets/fonts/URWGeometricArabic-SemiBold.ttf);
+}
+
+* {
+    font-family: URM !important;
+}
+
+body {
+    position: relative;
+    font-weight: bold;
+    height: 100vh;
+    background: url('./assets/images/patterns-01.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-primary {
+    background-color: var(--main-color) !important;
+    outline: none;
+    border: none;
+}
+
+input {
+    border: 1px solid var(--main-color) !important;
+}
+.product .card .card-body select {
+    color: #333;
+    border: 1px solid var(--main-color);
+}
+.navbar {
+    background: var(--main-color);
+}
+
+.navbar .nav-item .nav-link {
+    color: #fff;
+}
+
+.navbar .navbar-toggler i {
+    color: #fff;
+}
+
+.navbar .navbar-toggler:focus {
+    box-shadow: 255, 255, 255, var(--bs-navbar-toggler-focus-width);
+}
+
+.accordion-button::after {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.accordion-button {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+}
+
+.accordion-item {
+    background-color: #abc0ff;
+}
+
+.product .card .card-header,
+.product .card .card-footer {
+    background-color: var(--main-color);
+    color: #fff !important;
+}
+
+.product .card .card-body {
+    background: url('./assets/images/patterns-02.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.product .card .card-body img {
+    width: 50%;
+}
+
+.product .card .card-body .card-text {
+    color: var(--main-color);
+}
+
+#filter_button {
+    position: sticky;
+    bottom: 200px;
+    border-radius: 5px 0px 0 5px;
+    padding: 1rem;
+}
+
+#filters_section {
+    background-color: var(--main-color);
+    background-image: url('./assets/images/patterns-01-opacity40.png');
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
+
+#filters_section #search_filter {
+    padding: 0.6rem 2rem;
+    color: var(--main-color);
+}
+
+footer {
+    padding: 1rem 0;
+    background-color: var(--main-color);
+}
+
+#order_button {
+    padding: 0.5rem 2rem;
+}
+#user_information_validation .error {
+    color: red;
+}

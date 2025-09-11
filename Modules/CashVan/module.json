@@ -1,0 +1,11 @@
+{
+    "name": "CashVan",
+    "alias": "cashvan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CashVan\\Providers\\CashVanServiceProvider"
+    ],
+    "files": []
+}

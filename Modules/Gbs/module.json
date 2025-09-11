@@ -1,0 +1,14 @@
+{
+    "name": "Gbs",
+    "alias": "gbs",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Gbs\\Providers\\GbsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

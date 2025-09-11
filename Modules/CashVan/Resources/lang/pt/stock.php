@@ -1,0 +1,26 @@
+<?php
+return [
+    'add_van_stock' => 'adicionar estoque do furgão',
+    'van_stock.empty' => 'estoque de van vazio',
+    'delete_van_stock' => 'deletar estoque de van',
+    'already_empty' => 'já está vazio',
+    'transfer_from_car' => 'transferir do carro',
+    'transfer_to_car' => 'transferir para o carro',
+    'van_stock' => 'estoque de van',
+    'van_stock.delete' => 'deletar estoque de van',
+    'van_stock.view' => 'Ver estoque da van',
+    'sell' => 'Vender',
+    'purchase_transfer' => 'Adicionar estoque',
+    'sell_transfer' => 'Esvaziar estoque',
+    'view_history' => 'Histórico de estoque da van',
+    'the_deleted_stock' => 'Estoque devolvido',
+    'the_added_stock' => 'Estoque adicionado',
+    'cashvan.delete' => 'excluir cashvan',
+    'van_stock.view_history' => 'ver histórico de estoque',
+    'cashvan.delete' => 'excluir cash van',
+    'accept_on_order' => 'aceitar pedido',
+    'pending_for_approve' => 'aguardando aprovação',
+    'show_stock_order' => 'mostrar pedido de estoque',
+    'refuse_order' => 'recusar pedido',
+
+];

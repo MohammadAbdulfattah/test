@@ -1,0 +1,11 @@
+{
+    "name": "Goals",
+    "alias": "goals",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Goals\\Providers\\GoalsServiceProvider"
+    ],
+    "files": []
+}

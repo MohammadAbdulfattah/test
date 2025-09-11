@@ -1,0 +1,26 @@
+<?php
+return [
+    'add_van_stock' => 'adaugă stocul camionetei',
+    'van_stock.empty' => 'stoc de furgonete gol',
+    'delete_van_stock' => 'șterge stocul de furgonete',
+    'already_empty' => 'deja gol',
+    'transfer_from_car' => 'transfer de la mașină',
+    'transfer_to_car' => 'transfer la mașină',
+    'van_stock' => 'stoc de furgonete',
+    'van_stock.delete' => 'șterge stocul de furgonete',
+    'van_stock.view' => 'Vizualizează stocul autoutilitarei',
+    'sell' => 'Vânzare',
+    'purchase_transfer' => 'Adaugă stoc',
+    'sell_transfer' => 'Golește stocul',
+    'view_history' => 'Istoric stoc autoutilitară',
+    'the_deleted_stock' => 'Stoc returnat',
+    'the_added_stock' => 'Stoc adăugat',
+    'cashvan.delete' => 'șterge cashvan',
+    'cashvan.delete' => 'șterge cash van',
+    'van_stock.view_history' => 'vezi istoricul stocului',
+    'accept_on_order' => 'acceptă comanda',
+    'pending_for_approve' => 'în așteptarea aprobării',
+    'show_stock_order' => 'arată comanda de stoc',
+    'refuse_order' => 'refuză comanda',
+
+];

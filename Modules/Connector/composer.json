@@ -1,0 +1,25 @@
+{
+    "name": "twf/connector",
+    "description": "",
+    "authors": [
+        {
+            "name": "ROOT IQ",
+            "email": "info@root-iq.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Connector\\Providers\\ConnectorServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Connector\\": ""
+        }
+    }
+}
