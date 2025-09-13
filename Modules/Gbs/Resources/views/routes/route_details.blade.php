@@ -1,6 +1,18 @@
 <div class="table-responsive">
     @foreach($route->days as $day)
-        <h5 class="text-primary mt-3"><strong>{{ $days_ar[$day->day_of_week] ?? $day->day_of_week }}</strong></h5>
+        @php
+            $freqMap = [
+                7 => __('gbs::lang.every_week'),
+                14 => __('gbs::lang.every_2_weeks'),
+                21 => __('gbs::lang.every_3_weeks'),
+                28 => __('gbs::lang.every_4_weeks'),
+            ];
+            $freqLabel = $freqMap[$day->interval_days ?? 7] ?? __('gbs::lang.every_week');
+        @endphp
+        <h5 class="text-primary mt-3">
+            <strong>{{ $days_ar[$day->day_of_week] ?? $day->day_of_week }}</strong>
+            <small class="text-muted"> - {{ $freqLabel }}</small>
+        </h5>
         <ul class="list-unstyled">
             @foreach($day->clients as $routeClient)
                 <li class="d-flex align-items-start mb-1">

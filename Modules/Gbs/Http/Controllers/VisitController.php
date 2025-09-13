@@ -373,7 +373,8 @@ class VisitController extends Controller
                 }
             }
 
-            $routeDayId = $user->routes()->where('is_active', true)
+            // احضر يوم الروت المجدول اليوم لهذا العميل للحصول على interval_days
+            $scheduledRoute = $user->routes()->where('is_active', true)
                 ->whereHas('days', function ($q) use ($today, $request) {
                     $q->where('day_of_week', $today)
                         ->whereHas('clients', function ($q2) use ($request) {
@@ -386,10 +387,53 @@ class VisitController extends Controller
                             $q2->where('contact_id', $request->contact_id);
                         });
                 }])
-                ->first()
-                ?->days
-                ->first()
-                ?->id;
+                ->first();
+
+            $routeDay = $scheduledRoute?->days?->first();
+            $routeDayId = $routeDay?->id;
+
+            // تحقق من أهلية الزيارة بناءً على آخر زيارة و interval_days
+            $intervalDays = (int)($routeDay->interval_days ?? 7);
+
+            // ابحث عن آخر زيارة مكتملة لنفس المستخدم والعميل
+            $lastCompletedVisit = Visit::where('user_id', $user->id)
+                ->where('contact_id', $contact->id)
+                ->whereNotNull('ended_at')
+                ->orderBy('ended_at', 'desc')
+                ->first();
+
+            if ($lastCompletedVisit) {
+                // تحقق أن اليوم هو نفس اليوم المجدول في قاعدة البيانات
+                if ($today !== ($routeDay->day_of_week ?? '')) {
+                    return response()->json([
+                        'success' => false,
+                        'code' => 403,
+                        'message' => 'اليوم الحالي لا يطابق يوم الزيارة المجدول لهذا العميل.'
+                    ], 403);
+                }
+
+                // تحقق أن اليوم يطابق يوم آخر زيارة
+                $lastVisitDateTime = $lastCompletedVisit->started_at ?: $lastCompletedVisit->ended_at;
+                $lastVisitCarbon = Carbon::parse($lastVisitDateTime);
+                $lastVisitDayName = strtolower($lastVisitCarbon->locale('en')->dayName);
+                if ($today !== $lastVisitDayName) {
+                    return response()->json([
+                        'success' => false,
+                        'code' => 403,
+                        'message' => 'اليوم الحالي لا يطابق يوم آخر زيارة لهذا العميل.'
+                    ], 403);
+                }
+
+                // تحقق من شرط القسمة على interval
+                $daysDiff = $lastVisitCarbon->startOfDay()->diffInDays(Carbon::now()->startOfDay());
+                if ($daysDiff % $intervalDays !== 0) {
+                    return response()->json([
+                        'success' => false,
+                        'code' => 403,
+                        'message' => 'الزيارة غير مستحقة اليوم بناءً على تكرار الزيارة المحدد.'
+                    ], 403);
+                }
+            }
 
             $visitData = [
                 'user_id' => $user->id,

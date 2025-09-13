@@ -89,6 +89,7 @@ class RouteController extends Controller
             $route->save();
 
             $contacts = $request->input('contacts');
+            $intervalDaysInput = $request->input('interval_days', []);
 
             foreach ($contacts as $day => $clients) {
                 if (empty($clients)) {
@@ -98,6 +99,7 @@ class RouteController extends Controller
                 $routeDay = new RouteDay();
                 $routeDay->route_id = $route->id;
                 $routeDay->day_of_week = $day;
+                $routeDay->interval_days = isset($intervalDaysInput[$day]) ? (int)$intervalDaysInput[$day] : 7;
                 $routeDay->save();
 
                 foreach ($clients as $contact_id) {
@@ -166,7 +168,17 @@ class RouteController extends Controller
             }
         }
 
-        return view('gbs::routes.edit', compact('route', 'users', 'clients', 'selectedContacts'));
+        // اجلب قيم التكرار لكل يوم
+        $selectedIntervals = [];
+        $days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'saturday', 'friday'];
+        foreach ($days as $day) {
+            $routeDay = $route->days()->where('day_of_week', $day)->first();
+            if ($routeDay) {
+                $selectedIntervals[$day] = (int)($routeDay->interval_days ?: 7);
+            }
+        }
+
+        return view('gbs::routes.edit', compact('route', 'users', 'clients', 'selectedContacts', 'selectedIntervals'));
     }
 
 
@@ -185,12 +197,16 @@ class RouteController extends Controller
             $route->save();
 
             $contacts = $request->input('contacts', []);
+            $intervalDaysInput = $request->input('interval_days', []);
 
             foreach ($contacts as $dayName => $clientIds) {
                 // ابحث عن اليوم الحالي
                 $routeDay = $route->days()->where('day_of_week', $dayName)->first();
 
                 if ($routeDay) {
+                    // حدث قيمة التكرار
+                    $routeDay->interval_days = isset($intervalDaysInput[$dayName]) ? (int)$intervalDaysInput[$dayName] : ($routeDay->interval_days ?: 7);
+                    $routeDay->save();
                     // حدث العملاء المرتبطين بهذا اليوم: نحذف القديم ونضيف الجديد فقط
                     $routeDay->clients()->delete();
 
@@ -204,6 +220,7 @@ class RouteController extends Controller
                     if (!empty($clientIds)) {
                         $routeDay = $route->days()->create([
                             'day_of_week' => $dayName,
+                            'interval_days' => isset($intervalDaysInput[$dayName]) ? (int)$intervalDaysInput[$dayName] : 7,
                         ]);
 
                         foreach ($clientIds as $contactId) {
