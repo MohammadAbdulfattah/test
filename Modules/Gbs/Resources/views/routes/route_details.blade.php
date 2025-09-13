@@ -3,10 +3,9 @@
         @php
             $freqMap = [
                 7 => __('gbs::lang.every_week'),
-                10 => __('gbs::lang.every_10_days'),
                 14 => __('gbs::lang.every_2_weeks'),
                 21 => __('gbs::lang.every_3_weeks'),
-                30 => __('gbs::lang.every_month'),
+                28 => __('gbs::lang.every_4_weeks'),
             ];
             $freqLabel = $freqMap[$day->interval_days ?? 7] ?? __('gbs::lang.every_week');
         @endphp

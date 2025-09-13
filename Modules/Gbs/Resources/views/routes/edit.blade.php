@@ -63,16 +63,13 @@
                                     {!! Form::radio("interval_days[$key]", 7, $selected == 7) !!} @lang('gbs::lang.every_week')
                                 </label>
                                 <label class="tw-mr-3">
-                                    {!! Form::radio("interval_days[$key]", 10, $selected == 10) !!} @lang('gbs::lang.every_10_days')
-                                </label>
-                                <label class="tw-mr-3">
                                     {!! Form::radio("interval_days[$key]", 14, $selected == 14) !!} @lang('gbs::lang.every_2_weeks')
                                 </label>
                                 <label class="tw-mr-3">
                                     {!! Form::radio("interval_days[$key]", 21, $selected == 21) !!} @lang('gbs::lang.every_3_weeks')
                                 </label>
                                 <label class="tw-mr-3">
-                                    {!! Form::radio("interval_days[$key]", 30, $selected == 30) !!} @lang('gbs::lang.every_month')
+                                    {!! Form::radio("interval_days[$key]", 28, $selected == 28) !!} @lang('gbs::lang.every_4_weeks')
                                 </label>
                             </div>
                         </div>

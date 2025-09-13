@@ -82,9 +82,8 @@ return [
 
     // visit frequency options
     'every_week' => 'كل أسبوع',
-    'every_10_days' => 'كل 10 أيام',
     'every_2_weeks' => 'كل أسبوعين',
     'every_3_weeks' => 'كل 3 أسابيع',
-    'every_month' => 'كل شهر'
+    'every_4_weeks' => 'كل 4 أسابيع'
 
 ];
