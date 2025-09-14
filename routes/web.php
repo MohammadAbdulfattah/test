@@ -81,6 +81,13 @@ Route::middleware(['setData'])->group(function () {
         return view('welcome');
     });
 
+    // Simple pricing page route for landing links
+    Route::get('/pricing', function (\Illuminate\Http\Request $request) {
+        $currentLang = $request->get('lang', app()->getLocale() ?? 'ar');
+        app()->setLocale($currentLang);
+        return view('pricing', compact('currentLang'));
+    })->name('pricing');
+
     Auth::routes();
 
     Route::get('/business/register', [BusinessController::class, 'getRegister'])->name('business.getRegister');
